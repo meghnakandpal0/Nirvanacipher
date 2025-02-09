@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #0056b3;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+  width: calc(100% - 120px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003f7f;
+}
+
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.drag-over {
+  border-color: #0056b3;
+  background-color: #f0f8ff;
+}
+
+.flashes {
+  list-style-type: none;
+  padding: 0;
+  color: red;
+}
+
+.flashes li {
+  margin-bottom: 10px;
+}

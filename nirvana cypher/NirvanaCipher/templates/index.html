@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NirvanaCipher - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="NirvanaCipher Logo" class="logo">
+        <h2>Welcome to NirvanaCipher</h2>
+        <form id="upload-form" action="/" method="post" enctype="multipart/form-data">
+            <input type="file" id="file" name="file" required><br><br>
+            <label for="key">Key:</label>
+            <input type="text" id="key" name="key" required><br><br>
+            <button type="submit">Upload and Encrypt</button>
+        </form>
+
+        <div id="drop-area">
+            <h3>Drag & Drop Files Here</h3>
+        </div>
+
+        <h2>Uploaded Files</h2>
+        <ul>
+            {% for file in files %}
+            <li>
+                {{ file }}
+                <form action="/delete/{{ file }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="/share/{{ file }}">Share</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <script>
+        let dropArea = document.getElementById('drop-area');
+
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.classList.add('drag-over');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('drag-over');
+        });
+
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.classList.remove('drag-over');
+
+            let files = event.dataTransfer.files;
+            document.getElementById('file').files = files;
+        });
+    </script>
+</body>
+</html>
